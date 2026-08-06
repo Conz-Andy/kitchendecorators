@@ -1,0 +1,40 @@
+name: Mirror site images
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download images from live site
+        run: |
+          mkdir -p images
+          while IFS= read -r url; do
+            [ -z "$url" ] && continue
+            f="images/$(basename "$url")"
+            if [ ! -f "$f" ]; then
+              echo "Fetching $url"
+              curl -fsSL --retry 3 -A "Mozilla/5.0 (compatible; repo-mirror)" -o "$f" "$url"
+            fi
+          done < image-urls.txt
+
+      - name: Point index.html at local images
+        run: |
+          sed -i -E 's|https://www\.kitchendecorators\.co\.uk/wp-content/uploads/20[0-9]{2}/[0-9]{2}/|images/|g' index.html
+
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add images index.html
+          git diff --cached --quiet || git commit -m "Mirror site images into repo [skip ci]"
+          git push
