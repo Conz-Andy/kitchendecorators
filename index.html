@@ -5,542 +5,34 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>Home - Kitchen Decorators</title>
-<meta name="description" content="Dulux Accredited kitchen respray specialists serving Winchester, Southampton and Hampshire. Modernise your kitchen for up to 75% less than a new kitchen. 5-7 day turnaround, free colour consultation.">
+<meta name="description" content="Dulux Accredited kitchen respray specialists serving Winchester, Southampton and Hampshire. Modernise your kitchen for up to 75% less than a new kitchen. 5 day turnaround, free colour consultation.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg: #ffffff;
-    --bg-alt: #f7f5f1;
-    --ink: #262626;
-    --ink-soft: #6f6f6f;
-    --rule: #e7e3db;
-    --accent: #8c6e3f;
-    --accent-dark: #6a5230;
-    --cream: #f5f0e6;
-    --display: 'Cinzel', 'Trajan Pro', Georgia, serif;
-    --body: 'Poppins', system-ui, -apple-system, sans-serif;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  html, body { overflow-x: clip; }
-  body {
-    font-family: var(--body);
-    font-weight: 300;
-    font-size: 16px;
-    line-height: 1.7;
-    color: var(--ink);
-    background: var(--bg);
-    -webkit-font-smoothing: antialiased;
-  }
-  img { max-width: 100%; display: block; }
-  a { color: inherit; text-decoration: none; transition: color .2s ease; }
-  a:hover { color: var(--accent); }
-  .container { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
-  .eyebrow {
-    font-size: 11px;
-    letter-spacing: 0.45em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 20px;
-    font-weight: 400;
-  }
-  .section-title {
-    font-family: var(--display);
-    font-weight: 400;
-    font-size: clamp(26px, 3vw, 40px);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--ink);
-    line-height: 1.2;
-  }
-
-  /* ANNOUNCEMENT / TRUST BAR */
-  .trustbar {
-    background: #1e1e1e;
-    color: #cfc7b6;
-    font-size: 12px;
-    letter-spacing: 0.12em;
-    text-align: center;
-    padding: 9px 16px;
-  }
-  .trustbar strong { color: #fff; font-weight: 500; }
-  .trustbar .stars { color: #d9a94a; letter-spacing: 0.1em; }
-
-  /* HEADER */
-  .site-header {
-    position: sticky; top: 0; z-index: 50;
-    background: rgba(255,255,255,0.96);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--rule);
-    padding: 14px 0;
-  }
-  .site-header .inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-  .brand { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
-  .brand img { height: 44px; width: auto; }
-  .brand .wordmark {
-    font-family: var(--display);
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    font-size: 15px;
-    color: var(--ink);
-    line-height: 1.25;
-    text-transform: uppercase;
-    white-space: nowrap;
-  }
-  .brand .wordmark small {
-    display: block;
-    font-family: var(--body);
-    font-size: 8px;
-    letter-spacing: 0.28em;
-    color: var(--accent);
-    font-weight: 400;
-  }
-  .nav ul { list-style: none; display: flex; gap: 22px; align-items: center; flex-wrap: nowrap; }
-  .nav a {
-    font-size: 11.5px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: #444;
-    font-weight: 400;
-    white-space: nowrap;
-  }
-  .nav a.cta {
-    background: var(--accent);
-    color: #fff;
-    padding: 12px 20px;
-  }
-  .nav a.cta:hover { background: var(--accent-dark); color: #fff; }
-  .nav-toggle { display: none; background: none; border: 0; font-size: 26px; color: var(--ink); cursor: pointer; }
-
-  /* HERO */
-  .hero {
-    position: relative;
-    height: 86vh;
-    min-height: 560px;
-    background:
-      linear-gradient(to bottom, rgba(255,251,245,0.35) 0%, rgba(255,251,245,0.12) 45%, rgba(255,251,245,0.42) 100%),
-      url('images/slide1.jpg') center/cover no-repeat;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    padding-bottom: 84px;
-    text-align: center;
-  }
-  .hero-caption { max-width: 860px; padding: 0 24px; }
-  .hero-eyebrow {
-    font-size: 12px;
-    letter-spacing: 0.5em;
-    text-transform: uppercase;
-    color: #6f6f6f;
-    margin-bottom: 18px;
-  }
-  .hero-title {
-    font-family: var(--display);
-    font-weight: 400;
-    font-size: clamp(30px, 4.5vw, 58px);
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: #2a2a2a;
-    line-height: 1.15;
-    text-shadow: 0 1px 14px rgba(255,255,255,0.55);
-  }
-  .hero-title span { color: var(--accent); }
-  .btn {
-    display: inline-block;
-    background: var(--accent);
-    color: #fff;
-    padding: 17px 40px;
-    font-size: 12px;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    transition: background .2s ease;
-  }
-  .btn:hover { background: var(--accent-dark); color: #fff; }
-  .hero .btn { margin-top: 34px; }
-
-  /* INTRO */
-  .intro { padding: 110px 0 90px; text-align: center; }
-  .intro h1 {
-    font-family: var(--display);
-    font-weight: 400;
-    font-size: clamp(28px, 3.2vw, 42px);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-bottom: 26px;
-  }
-  .intro p { max-width: 760px; margin: 0 auto; color: var(--ink-soft); font-size: 17px; }
-  .intro .headline-75 {
-    display: block;
-    margin-top: 18px;
-    font-family: var(--display);
-    font-size: clamp(17px, 1.8vw, 22px);
-    letter-spacing: 0.08em;
-    color: var(--accent);
-    font-weight: 500;
-  }
-  .intro .quote-line {
-    max-width: 760px;
-    margin: 26px auto 0;
-    font-size: 16px;
-    color: var(--ink);
-  }
-  .quote-line a {
-    color: var(--accent);
-    font-weight: 500;
-    border-bottom: 1px solid var(--accent);
-    padding-bottom: 1px;
-  }
-  .quote-line a:hover { color: var(--accent-dark); border-color: var(--accent-dark); }
-  .google-badge {
-    display: inline-flex; align-items: center; gap: 12px;
-    margin-top: 38px;
-    border: 1px solid var(--rule);
-    padding: 14px 26px;
-    font-size: 13px;
-    color: var(--ink-soft);
-  }
-  .google-badge .stars { color: #d9a94a; font-size: 16px; letter-spacing: 2px; }
-  .google-badge strong { color: var(--ink); font-weight: 500; }
-
-  /* SPLIT SECTIONS */
-  .split-wrap { padding: 40px 0 0; }
-  .split {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 72px;
-    align-items: center;
-    padding: 60px 0;
-  }
-  .split-img {
-    aspect-ratio: 4/3.4;
-    background-size: cover;
-    background-position: center;
-    box-shadow: 0 30px 70px rgba(0,0,0,0.12);
-  }
-  .split-text h2 {
-    font-family: var(--display);
-    font-size: clamp(22px, 2.4vw, 32px);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    font-weight: 400;
-  }
-  .split-text p { margin-bottom: 16px; color: var(--ink-soft); }
-  .btn-link {
-    display: inline-block;
-    margin-top: 12px;
-    font-size: 12px;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--accent);
-    border-bottom: 1px solid var(--accent);
-    padding-bottom: 4px;
-  }
-  .btn-link:hover { color: var(--accent-dark); border-color: var(--accent-dark); }
-
-  /* SIX STEPS */
-  .steps { padding: 100px 0; background: var(--bg-alt); text-align: center; }
-  .steps-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
-    margin-top: 60px;
-    text-align: left;
-  }
-  .step {
-    background: #fff;
-    padding: 36px 32px;
-    border-top: 2px solid var(--accent);
-    transition: transform .3s ease, box-shadow .3s ease;
-  }
-  .step:hover { transform: translateY(-4px); box-shadow: 0 18px 44px rgba(0,0,0,0.07); }
-  .step .num {
-    font-family: var(--display);
-    font-size: 15px;
-    color: var(--accent);
-    letter-spacing: 0.2em;
-    margin-bottom: 14px;
-  }
-  .step h3 {
-    font-family: var(--display);
-    font-size: 16px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-    font-weight: 500;
-    line-height: 1.4;
-  }
-  .step p { color: var(--ink-soft); font-size: 14.5px; }
-
-  /* BEFORE / AFTER */
-  .beforeafter { padding: 110px 0; text-align: center; }
-  .ba-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
-    margin-top: 60px;
-  }
-  .ba-slider {
-    position: relative;
-    aspect-ratio: 4/3.6;
-    overflow: hidden;
-    user-select: none;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.12);
-  }
-  .ba-slider img {
-    position: absolute; inset: 0;
-    width: 100%; height: 100%;
-    object-fit: cover;
-    pointer-events: none;
-  }
-  .ba-slider .after-img { clip-path: inset(0 0 0 50%); }
-  .ba-handle {
-    position: absolute; top: 0; bottom: 0; left: 50%;
-    width: 2px; background: #fff;
-    box-shadow: 0 0 12px rgba(0,0,0,0.4);
-    pointer-events: none;
-  }
-  .ba-handle::after {
-    content: '⟨ ⟩';
-    position: absolute; top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    background: #fff;
-    color: var(--accent-dark);
-    width: 44px; height: 44px;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 13px;
-    letter-spacing: -1px;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.3);
-  }
-  .ba-slider .tag {
-    position: absolute; bottom: 14px;
-    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
-    color: #fff; background: rgba(0,0,0,0.55);
-    padding: 6px 12px;
-    pointer-events: none;
-  }
-  .ba-slider .tag.before { left: 14px; }
-  .ba-slider .tag.after { right: 14px; }
-  .ba-caption {
-    margin-top: 16px;
-    font-size: 12px;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-  }
-  .ba-hint { margin-top: 34px; font-size: 13px; color: var(--ink-soft); }
-
-  /* GALLERY STRIP */
-  .gallery { padding: 100px 0; background: var(--bg-alt); text-align: center; }
-  .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-    margin-top: 60px;
-  }
-  .gallery-grid .tile {
-    aspect-ratio: 1/1;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .gallery-grid .tile::after {
-    content: '';
-    position: absolute; inset: 0;
-    background: rgba(30,25,15,0);
-    transition: background .3s ease;
-  }
-  .gallery-grid .tile:hover::after { background: rgba(30,25,15,0.22); }
-  .gallery-grid .tile span {
-    position: absolute; left: 18px; bottom: 14px; z-index: 2;
-    color: #fff;
-    font-size: 10px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    text-shadow: 0 1px 4px rgba(0,0,0,0.6);
-  }
-
-  /* COLOURS */
-  .colours { padding: 110px 0; text-align: center; }
-  .colours p { max-width: 700px; margin: 0 auto; color: var(--ink-soft); font-size: 17px; }
-  .brand-row {
-    display: flex; flex-wrap: wrap; justify-content: center; gap: 18px;
-    margin-top: 44px;
-  }
-  .brand-chip {
-    font-family: var(--display);
-    font-size: 15px;
-    letter-spacing: 0.14em;
-    padding: 16px 32px;
-    border: 1px solid var(--rule);
-    color: var(--ink);
-    background: #fff;
-    transition: border-color .2s ease, transform .2s ease;
-  }
-  .brand-chip:hover { border-color: var(--accent); transform: translateY(-2px); }
-  .swatch-row {
-    display: flex; justify-content: center; gap: 0;
-    margin: 48px auto 0;
-    max-width: 760px;
-    height: 14px;
-  }
-  .swatch-row i { flex: 1; }
-
-  /* TESTIMONIALS */
-  .testimonials { padding: 110px 0; background: #211f1b; color: var(--cream); text-align: center; }
-  .testimonials .eyebrow { color: #d9a94a; }
-  .testimonials .section-title { color: #fff; }
-  .t-rating { margin-top: 22px; font-size: 14px; color: #b8ae99; letter-spacing: 0.08em; }
-  .t-rating .stars { color: #d9a94a; font-size: 19px; letter-spacing: 3px; }
-  .t-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    margin-top: 56px;
-    text-align: left;
-  }
-  .t-card {
-    background: rgba(255,255,255,0.045);
-    border: 1px solid rgba(255,255,255,0.09);
-    padding: 36px 32px;
-  }
-  .t-card .stars { color: #d9a94a; letter-spacing: 2px; margin-bottom: 18px; font-size: 14px; }
-  .t-card blockquote {
-    font-size: 15px;
-    line-height: 1.75;
-    color: #ddd5c4;
-    font-style: italic;
-  }
-  .t-card cite {
-    display: block;
-    margin-top: 22px;
-    font-style: normal;
-    font-size: 11px;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: #d9a94a;
-  }
-
-  /* CONSULT CTA */
-  .consult {
-    padding: 120px 0;
-    text-align: center;
-    background:
-      linear-gradient(rgba(250,248,244,0.9), rgba(250,248,244,0.9)),
-      url('images/kitchen-respray-wincester-overton-sapphire.jpg') center/cover no-repeat;
-  }
-  .consult h2 {
-    font-family: var(--display);
-    font-weight: 400;
-    font-size: clamp(26px, 3vw, 40px);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    margin-bottom: 18px;
-  }
-  .consult p { max-width: 620px; margin: 0 auto 36px; color: var(--ink-soft); font-size: 17px; }
-
-  /* FOOTER */
-  .site-footer {
-    background: #1a1916;
-    color: #a89f8f;
-    padding: 76px 0 30px;
-    font-size: 14px;
-  }
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 1.6fr 1fr 1fr 1fr;
-    gap: 48px;
-    margin-bottom: 54px;
-  }
-  .site-footer h4 {
-    font-family: var(--display);
-    font-size: 13px;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--cream);
-    margin-bottom: 18px;
-    font-weight: 500;
-  }
-  .site-footer a, .site-footer address { color: #a89f8f; display: block; margin-bottom: 8px; font-style: normal; line-height: 1.7; }
-  .site-footer a:hover { color: #d9a94a; }
-  .footer-copy {
-    border-top: 1px solid #322f28;
-    padding-top: 24px;
-    text-align: center;
-    font-size: 12px;
-    letter-spacing: 0.15em;
-    color: #77705f;
-  }
-
-  /* RESPONSIVE */
-  @media (max-width: 1180px) {
-    .nav ul { display: none; }
-    .nav ul.open {
-      display: flex; flex-direction: column;
-      position: absolute; top: 100%; left: 0; right: 0;
-      background: #fff; border-bottom: 1px solid var(--rule);
-      padding: 24px 32px; gap: 18px;
-    }
-    .nav-toggle { display: block; }
-  }
-  @media (max-width: 980px) {
-    .split { grid-template-columns: 1fr; gap: 36px; padding: 40px 0; }
-    .split.reverse .split-img { order: -1; }
-    .steps-grid, .ba-grid, .t-grid { grid-template-columns: 1fr; }
-    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-    .footer-grid { grid-template-columns: 1fr 1fr; }
-    .intro, .steps, .beforeafter, .gallery, .colours, .testimonials, .consult { padding: 70px 0; }
-    .hero { height: 74vh; min-height: 480px; }
-  }
-  @media (max-width: 700px) {
-    .container { padding: 0 22px; }
-    .brand { gap: 10px; }
-    .brand img { height: 38px; }
-    .brand .wordmark { font-size: 13px; letter-spacing: 0.08em; }
-    .brand .wordmark small { display: none; }
-    .trustbar { font-size: 10.5px; letter-spacing: 0.06em; padding: 8px 12px; }
-    .intro .quote-line, .intro p { padding: 0 4px; }
-    .step { padding: 30px 24px; }
-    .t-card { padding: 30px 24px; }
-    .google-badge { padding: 12px 18px; }
-    .split-text { padding: 0 2px; }
-  }
-  @media (max-width: 430px) {
-    .brand .wordmark { display: none; }
-  }
-  @media (max-width: 560px) {
-    .gallery-grid { grid-template-columns: 1fr; }
-    .footer-grid { grid-template-columns: 1fr; }
-  }
-</style>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <div class="trustbar">
-  <span class="stars">★★★★★</span>&nbsp; <strong>5.0</strong> rated from 65 Google reviews &nbsp;·&nbsp; Dulux Accredited &nbsp;·&nbsp; <strong>01962 458055</strong>
+  <span class="stars">★★★★★</span>&nbsp; <strong>5.0</strong> rated from 66 Google reviews &nbsp;·&nbsp; Dulux Accredited &nbsp;·&nbsp; <strong>01962 458055</strong>
 </div>
 
 <header class="site-header">
   <div class="container inner">
-    <a href="/" class="brand">
-      <img src="images/logo1.png" alt="Kitchen Decorators">
+    <a href="index.html" class="brand">
       <span class="wordmark">Kitchen Decorators<small>Respray Specialists · Hampshire</small></span>
     </a>
     <nav class="nav">
       <button class="nav-toggle" onclick="document.getElementById('navlist').classList.toggle('open')" aria-label="Menu">☰</button>
       <ul id="navlist">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Kitchen Resprays</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#reviews">Reviews</a></li>
-        <li><a href="#">About us</a></li>
-        <li><a href="#">FAQs</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="#quote" class="cta">Get a Free Quote</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="kitchen-resprays.html">Kitchen Resprays</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="about.html">About us</a></li>
+        <li><a href="faqs.html">FAQs</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="quote.html" class="cta">Get a Free Quote</a></li>
       </ul>
     </nav>
   </div>
@@ -551,7 +43,7 @@
   <div class="hero-caption">
     <div class="hero-eyebrow">The Home of Fabulous Kitchen Makeovers</div>
     <p class="hero-title">Modernise <span>with a</span> Respray</p>
-    <a href="#quote" class="btn">Get a Free Quote</a>
+    <a href="quote.html" class="btn">Get a Free Quote</a>
   </div>
 </section>
 
@@ -563,10 +55,10 @@
     <p>Respraying is the art of turning a tired kitchen into an upto date modern fresh looking kitchen.
       <span class="headline-75">And all for upto 75% cheaper than the cost of a new kitchen</span>
     </p>
-    <p class="quote-line">If you fancy a quote either call <a href="tel:01962458055">Tel: 01962 458055</a> or fill out the contact form on the <a href="#contact">contact page</a>.</p>
+    <p class="quote-line">If you fancy a quote either call <a href="tel:01962458055">Tel: 01962 458055</a> or fill out the contact form on the <a href="contact.html">contact page</a>.</p>
     <div class="google-badge">
       <span class="stars">★★★★★</span>
-      <span><strong>5.0</strong> based on <strong>65 Google reviews</strong></span>
+      <span><strong>5.0</strong> based on <strong>66 Google reviews</strong></span>
     </div>
   </div>
 </section>
@@ -574,7 +66,7 @@
 <!-- SPLIT — Bespoke Paintwork -->
 <div class="split-wrap container">
   <section class="split">
-    <div class="split-img" style="background-image: url('images/kitchen-respray-wincester-overton-sapphire.jpg');"></div>
+    <div class="split-img" style="background-image: url('images/kitchen-respray-southampton-5-after.jpg');"></div>
     <div class="split-text">
       <div class="eyebrow">Any Colour, Matched</div>
       <h2>Bespoke Paintwork</h2>
@@ -590,7 +82,7 @@
       <p>Our painting expertise allows us to deliver only the highest standard of paint work and finishing. Combining the latest techniques, skill, and products to create a "good as new" quality finish.</p>
       <a href="#gallery" class="btn-link">See recent projects</a>
     </div>
-    <div class="split-img" style="background-image: url('images/kitchen-respray-wincester-southampton-sea-goddess.jpg');"></div>
+    <div class="split-img" style="background-image: url('images/kitchen-respray-southampton-4-after.jpg');"></div>
   </section>
 </div>
 
@@ -612,13 +104,13 @@
       </div>
       <div class="step">
         <div class="num">03</div>
-        <h3>Installation &amp; Clean Up</h3>
-        <p>After refitting your units we will perform a full clean up of your entire kitchen cabinets.</p>
+        <h3>Installation &amp; Tidy Up</h3>
+        <p>After refitting your units we tidy up the kitchen, leaving it ready to enjoy.</p>
       </div>
       <div class="step">
         <div class="num">04</div>
         <h3>Fast &amp; Minimum Disruption</h3>
-        <p>In just 5-7 days we can transform your kitchen from any colour to any colour.</p>
+        <p>In just 5 days we can transform your kitchen — with only 2 afternoons of disruption.</p>
       </div>
       <div class="step">
         <div class="num">05</div>
@@ -641,37 +133,27 @@
     <h2 class="section-title">The Transformation</h2>
     <div class="ba-grid">
       <div>
-        <div class="ba-slider" data-ba>
-          <img src="images/kitchen-respray-southampton-6-before.jpg" alt="Kitchen before respray">
-          <img class="after-img" src="images/kitchen-respray-southampton-6-after.jpg" alt="Kitchen after respray">
-          <div class="ba-handle"></div>
-          <span class="tag before">Before</span>
-          <span class="tag after">After</span>
+        <div class="ba-pair">
+          <div class="ba-shot"><img src="images/kitchen-respray-southampton-6-before.jpg" alt="Kitchen before respray"><span class="tag">Before</span></div>
+          <div class="ba-shot"><img src="images/kitchen-respray-southampton-6-after.jpg" alt="Kitchen after respray"><span class="tag after">After</span></div>
         </div>
         <div class="ba-caption">Kitchen Respray · Southampton</div>
       </div>
       <div>
-        <div class="ba-slider" data-ba>
-          <img src="images/kitchen-respray-southampton-3-before.jpg" alt="Kitchen before respray">
-          <img class="after-img" src="images/kitchen-respray-southampton-3-after.jpg" alt="Kitchen after respray">
-          <div class="ba-handle"></div>
-          <span class="tag before">Before</span>
-          <span class="tag after">After</span>
+        <div class="ba-pair">
+          <div class="ba-shot"><img src="images/kitchen-respray-southampton-3-before.jpg" alt="Kitchen before respray"><span class="tag">Before</span></div>
+          <div class="ba-shot"><img src="images/kitchen-respray-southampton-3-after.jpg" alt="Kitchen after respray"><span class="tag after">After</span></div>
         </div>
         <div class="ba-caption">Kitchen Respray · Southampton</div>
       </div>
       <div>
-        <div class="ba-slider" data-ba>
-          <img src="images/kitchen-respray-southampton-7-before.jpeg" alt="Kitchen before respray">
-          <img class="after-img" src="images/kitchen-respray-southampton-7-after.jpeg" alt="Kitchen after respray">
-          <div class="ba-handle"></div>
-          <span class="tag before">Before</span>
-          <span class="tag after">After</span>
+        <div class="ba-pair">
+          <div class="ba-shot"><img src="images/kitchen-respray-southampton-7-before.jpeg" alt="Kitchen before respray"><span class="tag">Before</span></div>
+          <div class="ba-shot"><img src="images/kitchen-respray-southampton-7-after.jpeg" alt="Kitchen after respray"><span class="tag after">After</span></div>
         </div>
         <div class="ba-caption">Kitchen Respray · Southampton</div>
       </div>
     </div>
-    <p class="ba-hint">Drag across each photo to reveal the finished kitchen.</p>
   </div>
 </section>
 
@@ -681,14 +163,14 @@
     <div class="eyebrow">The Gallery</div>
     <h2 class="section-title">Kitchens Across Hampshire</h2>
     <div class="gallery-grid">
-      <div class="tile" style="background-image: url('images/kitchen-respray-wincester-blue-oblivian.jpg');"><span>Blue Oblivion</span></div>
-      <div class="tile" style="background-image: url('images/kitchen-respray-wincester-overton-sapphire.jpg');"><span>Overton · Sapphire</span></div>
-      <div class="tile" style="background-image: url('images/kitchen-respray-wincester-southampton-sea-goddess.jpg');"><span>Sea Goddess</span></div>
       <div class="tile" style="background-image: url('images/kitchen-respray-southampton-2-after.jpg');"><span>Southampton</span></div>
-      <div class="tile" style="background-image: url('images/kitchen-respray-southampton-9-after.jpeg');"><span>Southampton</span></div>
+      <div class="tile" style="background-image: url('images/kitchen-respray-southampton-8-after.jpeg');"><span>Southampton</span></div>
+      <div class="tile" style="background-image: url('images/kitchen-respray-southampton-10-after.jpeg');"><span>Southampton</span></div>
       <div class="tile" style="background-image: url('images/kitchen-respray-southampton-11-after.jpeg');"><span>Southampton</span></div>
+      <div class="tile" style="background-image: url('images/kitchen-respray-southampton-9-after.jpeg');"><span>Southampton</span></div>
+      <div class="tile" style="background-image: url('images/kitchen-respray-southampton-12-after.jpeg');"><span>Southampton</span></div>
     </div>
-    <a href="#" class="btn-link" style="margin-top:44px; display:inline-block;">View the full gallery</a>
+    <a href="gallery.html" class="btn-link" style="margin-top:44px; display:inline-block;">View the full gallery</a>
   </div>
 </section>
 
@@ -715,25 +197,43 @@
   <div class="container">
     <div class="eyebrow">What Our Customers Say</div>
     <h2 class="section-title">Trusted Across Hampshire</h2>
-    <div class="t-rating"><span class="stars">★★★★★</span><br>5.0 based on 65 Google reviews</div>
+    <div class="t-rating"><span class="stars">★★★★★</span><br>5.0 based on 66 Google reviews</div>
     <div class="t-grid">
       <div class="t-card">
-        <div class="stars">★★★★★</div>
+        <div class="t-head">
+          <span class="t-avatar" style="background:#3f4e5a">D</span>
+          <div>
+            <div class="t-name">Derek Blundell</div>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
         <blockquote>"A very professional team with a great eye for detail. They finished the job on time with a minimum of fuss."</blockquote>
-        <cite>— Derek Blundell</cite>
+        <div class="t-google">Google review</div>
       </div>
       <div class="t-card">
-        <div class="stars">★★★★★</div>
+        <div class="t-head">
+          <span class="t-avatar" style="background:#8c6e3f">K</span>
+          <div>
+            <div class="t-name">Keith Baker</div>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
         <blockquote>"Scott and his team carried out the work in a totally professional manner, making sure to protect the new work tops."</blockquote>
-        <cite>— Keith Baker</cite>
+        <div class="t-google">Google review</div>
       </div>
       <div class="t-card">
-        <div class="stars">★★★★★</div>
+        <div class="t-head">
+          <span class="t-avatar" style="background:#7a8b7f">A</span>
+          <div>
+            <div class="t-name">Adrian Watts</div>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
         <blockquote>"It genuinely looks like a brand-new factory-finished kitchen. The attention to detail throughout was excellent."</blockquote>
-        <cite>— Adrian Watts</cite>
+        <div class="t-google">Google review</div>
       </div>
     </div>
-    <a href="#" class="btn-link" style="margin-top:48px; display:inline-block; color:#d9a94a; border-color:#d9a94a;">Read all 65 reviews</a>
+    <a href="reviews.html" class="btn-link" style="margin-top:48px; display:inline-block; color:#d9a94a; border-color:#d9a94a;">Read all 66 reviews</a>
   </div>
 </section>
 
@@ -743,7 +243,7 @@
     <div class="eyebrow">No Obligation</div>
     <h2>Want A Free Colour Consultation?</h2>
     <p>We'll come to you anywhere in Hampshire with swatches, samples and honest advice — and a free, no-obligation quote for your kitchen.</p>
-    <a href="#contact" class="btn">Free Consultation</a>
+    <a href="contact.html" class="btn">Free Consultation</a>
   </div>
 </section>
 
@@ -763,11 +263,11 @@
       </div>
       <div>
         <h4>Menu</h4>
-        <a href="#">Kitchen Resprays</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#reviews">Reviews</a>
-        <a href="#">About us</a>
-        <a href="#">FAQs</a>
+        <a href="kitchen-resprays.html">Kitchen Resprays</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="about.html">About us</a>
+        <a href="faqs.html">FAQs</a>
       </div>
       <div>
         <h4>Service Area</h4>
@@ -782,26 +282,6 @@
     </div>
   </div>
 </footer>
-
-<script>
-  // Before/After drag sliders
-  document.querySelectorAll('[data-ba]').forEach(function (el) {
-    var after = el.querySelector('.after-img');
-    var handle = el.querySelector('.ba-handle');
-    function setPos(clientX) {
-      var r = el.getBoundingClientRect();
-      var x = Math.min(Math.max(clientX - r.left, 0), r.width);
-      var pct = (x / r.width) * 100;
-      after.style.clipPath = 'inset(0 0 0 ' + pct + '%)';
-      handle.style.left = pct + '%';
-    }
-    var dragging = false;
-    el.addEventListener('pointerdown', function (e) { dragging = true; el.setPointerCapture(e.pointerId); setPos(e.clientX); });
-    el.addEventListener('pointermove', function (e) { if (dragging) setPos(e.clientX); });
-    el.addEventListener('pointerup', function () { dragging = false; });
-    el.addEventListener('pointercancel', function () { dragging = false; });
-  });
-</script>
 
 </body>
 </html>
