@@ -43,7 +43,7 @@
 <iframe id="frame" src="index.html"></iframe>
 
 <div id="panel">
-  <h1>Scott's Changes — Cross-Check</h1>
+  <h1>Round 2 Changes — Cross-Check</h1>
   <div class="sub">Click an item to jump to it. Gold outlines mark the change on the page. This overlay is for Andrew only — the normal site link shows none of this.</div>
   <div class="pages" id="pagebtns"></div>
   <div id="items"></div>
@@ -51,33 +51,48 @@
 </div>
 
 <script>
-const PAGES = ['index.html','gallery.html','reviews.html','kitchen-resprays.html','about.html','faqs.html','contact.html','quote.html'];
+const PAGES = ['index.html','gallery.html','reviews.html','kitchen-resprays.html','about.html','faqs.html','contact.html','quote.html','service-areas.html'];
 
 const CHANGES = [
-  { num: 1, page: 'index.html', sel: '.brand .wordmark',
-    title: 'Logo removed', scott: '"Logo still has black lines."',
-    done: 'Cube logo image dropped site-wide — clean text wordmark instead.' },
-  { num: 2, page: 'index.html', sel: '.steps-grid .step:nth-child(3)',
-    title: 'Step 03 wording', scott: '"we dont clean the kitchen cabinets. we tidy up the kitchen."',
-    done: 'Now: "Installation & Tidy Up — we tidy up the kitchen, leaving it ready to enjoy."' },
-  { num: 3, page: 'index.html', sel: '.steps-grid .step:nth-child(4)',
-    title: 'Step 04 turnaround', scott: '"turnaround is 5 days with only 2 afternoons of disruption."',
-    done: 'Now: "In just 5 days — with only 2 afternoons of disruption." (also on Kitchen Resprays page + meta)' },
-  { num: 4, page: 'index.html', sel: '.beforeafter .ba-grid',
-    title: 'Sliders removed', scott: '"Im not a big fan of the slides, sorry!"',
-    done: 'Static before / after photos side by side — no dragging.' },
-  { num: 5, page: 'index.html', sel: '.testimonials .t-grid',
-    title: 'Review cards restyled', scott: '"can we not put the actual reviews on a white box (i like the black behind the review box)... the reviews you did on the other site looked better (with pictures)."',
-    done: 'White Google-style cards with reviewer pictures, on the dark band.' },
-  { num: 6, page: 'index.html', sel: '.gallery-grid',
-    title: 'Old photos removed (homepage)', scott: '"remove ALL the old photos and replace with the ones i sent."',
-    done: 'Every image on the site is now from the new Southampton set.' },
-  { num: 7, page: 'gallery.html', sel: '.pairs-grid',
-    title: 'Gallery replaced', scott: '"apart from replacing the photos in the gallery, dont worry about changing anything else."',
-    done: '40 old colour photos removed — now 11 before/after projects from the new set.' },
-  { num: 8, page: 'reviews.html', sel: '.reviews-page-grid',
-    title: 'Reviews page rebuilt', scott: '"the reviews you did on the other site looked better (with pictures)."',
-    done: '6 full Google reviews with pictures, names, stars and dates. Count updated to 66.' },
+  { num: 1, page: 'index.html', sel: '.brand',
+    title: 'Logo restored', scott: '"Home page - Logo is missing"',
+    done: 'Original website logo restored on every page (per Andrew).' },
+  { num: 2, page: 'index.html', sel: '.brand-row',
+    title: 'Colour links now work', scott: '"Explore colour options - the tab doesn’t seem to work"',
+    done: 'The four brand chips now open the real colour charts: Dulux, Farrow & Ball, Little Greene, Edward Bulmer (new tab).' },
+  { num: 3, page: 'index.html', sel: '.beforeafter .ba-grid',
+    title: 'Click to enlarge', scott: '"when you click on the picture shouldn’t it enlarge? and ditto with the gallery"',
+    done: 'Every photo (transformations, gallery tiles, gallery page) opens full-screen on click. Esc or click closes.' },
+  { num: 4, page: 'index.html', sel: '.gallery-grid',
+    title: 'Towns mixed up', scott: '"all mention Southampton. Can you mix it up a bit"',
+    done: 'Captions now spread across Winchester, Romsey, Chandler’s Ford, Hedge End, Colden Common, Botley, Salisbury, Basingstoke.' },
+  { num: 5, page: 'about.html', sel: '.page-hero',
+    title: 'About heading', scott: '"under the heading please add - Dulux Accredited etc"',
+    done: '"Dulux Accredited Kitchen Sprayer" added directly under the About Us heading.' },
+  { num: 6, page: 'faqs.html', sel: '.faq-item:nth-child(2)',
+    title: 'FAQ: surfaces', scott: '"we dont offer test patches and we do spray MDF"',
+    done: 'Test patches removed; MDF now listed as sprayable.' },
+  { num: 7, page: 'faqs.html', sel: '.faq-item:nth-child(3)',
+    title: 'FAQ: paints', scott: '"we use a specialist paint designed for kitchen that match to all the brands you mentioned"',
+    done: 'Now: specialist kitchen paint, colour matched to Dulux, F&B, Little Greene and Edward Bulmer.' },
+  { num: 8, page: 'faqs.html', sel: '.faq-item:nth-child(4)',
+    title: 'FAQ: process', scott: '"its only 2 afternoons"',
+    done: 'Now: "Our time in your home is just 2 afternoons."' },
+  { num: 9, page: 'faqs.html', sel: '.faq-item:nth-child(6)',
+    title: 'FAQ: fixtures', scott: '"dont mention rollers"',
+    done: 'Rollers removed - masked and sprayed in place.' },
+  { num: 10, page: 'faqs.html', sel: '.faq-item:nth-child(8)',
+    title: 'FAQ: same day use', scott: '"you can use your kitchen the same day"',
+    done: 'Now: "You can use your kitchen the same day."' },
+  { num: 11, page: 'faqs.html', sel: '.faq-item:nth-child(9)',
+    title: 'FAQ: damage remedy', scott: '"we will always return to remedy any damage free of charge unless you are a serial offender then we charge!"',
+    done: 'Added word for word (joke included).' },
+  { num: 12, page: 'gallery.html', sel: '.pairs-grid',
+    title: 'Gallery: towns + enlarge', scott: '"mix it up a bit... ditto with the gallery"',
+    done: 'All 11 project captions now varied towns; every photo enlarges on click.' },
+  { num: 13, page: 'index.html', sel: '.site-footer .footer-grid',
+    title: 'Service area links', scott: '"i see services areas link on the footer but no content"',
+    done: 'New Service Areas page created listing all the towns; footer links now go there.' },
 ];
 
 const frame = document.getElementById('frame');
