@@ -621,3 +621,20 @@
   @media (max-width: 620px) {
     .pairs-grid, .reviews-page-grid { grid-template-columns: 1fr; }
   }
+
+  /* logo mark + lightbox */
+  .brand-mark { flex-shrink: 0; display: block; }
+  @media (max-width: 700px) { .brand-mark { width: 30px; height: 34px; } }
+  .ba-shot img, .gallery-grid .tile, .work-grid .tile { cursor: zoom-in; }
+  #lightbox {
+    position: fixed; inset: 0; z-index: 999;
+    background: rgba(20,18,14,0.92);
+    display: flex; align-items: center; justify-content: center;
+    padding: 4vh 4vw; cursor: zoom-out;
+  }
+  #lightbox img { max-width: 100%; max-height: 100%; box-shadow: 0 30px 90px rgba(0,0,0,0.6); }
+  #lightbox .lb-close {
+    position: absolute; top: 18px; right: 26px;
+    color: #fff; font-size: 34px; font-family: sans-serif;
+    background: none; border: 0; cursor: pointer; opacity: 0.8;
+  }
