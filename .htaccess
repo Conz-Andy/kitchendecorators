@@ -1,0 +1,88 @@
+# ============================================================
+# Kitchen Decorators — static site .htaccess
+# NOTE: This file is inert on the GitHub Pages preview.
+# It takes effect only when uploaded to the Namecheap server.
+# ============================================================
+
+Options -Indexes
+DirectoryIndex index.html
+
+RewriteEngine On
+
+# ---- Force HTTPS + www (single canonical host) ----
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteCond %{HTTP_HOST} !^$
+RewriteRule ^(.*)$ https://www.kitchendecorators.co.uk/$1 [R=301,L]
+
+# ============================================================
+# 301 redirects — old WordPress URLs → new locations
+# (specific rules first, catch-alls last)
+# ============================================================
+
+# Old pages
+RedirectMatch 301 ^/our-services/?$ https://www.kitchendecorators.co.uk/kitchen-respray-hampshire-2/
+RedirectMatch 301 ^/kitchen-respray-hampshire/?$ https://www.kitchendecorators.co.uk/kitchen-respray-hampshire-2/
+RedirectMatch 301 ^/colours/?$ https://www.kitchendecorators.co.uk/
+RedirectMatch 301 ^/colour-consultation/?$ https://www.kitchendecorators.co.uk/contact/
+RedirectMatch 301 ^/colour-consultant-request/?$ https://www.kitchendecorators.co.uk/contact/
+
+# Portfolio project pages → matching town landing pages
+RedirectMatch 301 ^/portfolio/kitchen-respray-winchester.*$ https://www.kitchendecorators.co.uk/kitchen-respray-winchester/
+RedirectMatch 301 ^/portfolio/kitchen-respray-stockbridge.*$ https://www.kitchendecorators.co.uk/kitchen-respray-winchester/
+RedirectMatch 301 ^/portfolio/kitchen-respray-sutton-scotney.*$ https://www.kitchendecorators.co.uk/kitchen-respray-winchester/
+RedirectMatch 301 ^/portfolio/kitchen-respray-southampton.*$ https://www.kitchendecorators.co.uk/kitchen-respray-southampton/
+RedirectMatch 301 ^/portfolio/kitchen-respray-romsey.*$ https://www.kitchendecorators.co.uk/kitchen-respray-romsey/
+RedirectMatch 301 ^/portfolio/kitchen-respray-basingstoke.*$ https://www.kitchendecorators.co.uk/kitchen-respray-basingstoke/
+RedirectMatch 301 ^/portfolio/kitchen-respray-farnham.*$ https://www.kitchendecorators.co.uk/kitchen-respray-farnham/
+RedirectMatch 301 ^/portfolio/kitchen-respray-alton.*$ https://www.kitchendecorators.co.uk/kitchen-respray-alton/
+RedirectMatch 301 ^/portfolio/kitchen-respray-petersfield-andover.*$ https://www.kitchendecorators.co.uk/kitchen-respray-andover/
+RedirectMatch 301 ^/portfolio/kitchen-respray-petersfield.*$ https://www.kitchendecorators.co.uk/kitchen-respray-petersfield/
+RedirectMatch 301 ^/portfolio/kitchen-respray-fareham.*$ https://www.kitchendecorators.co.uk/kitchen-respray-fareham/
+RedirectMatch 301 ^/portfolio/kitchen-respray-andover.*$ https://www.kitchendecorators.co.uk/kitchen-respray-andover/
+# Any other portfolio URL → gallery
+RedirectMatch 301 ^/portfolio(/.*)?$ https://www.kitchendecorators.co.uk/projects/
+
+# Testimonials → client reviews page
+RedirectMatch 301 ^/testimonial(/.*)?$ https://www.kitchendecorators.co.uk/client-reviews/
+
+# Old theme demo sections → home
+RedirectMatch 301 ^/service(/.*)?$ https://www.kitchendecorators.co.uk/
+RedirectMatch 301 ^/process(/.*)?$ https://www.kitchendecorators.co.uk/
+
+# ============================================================
+# Clean URLs — serve the static .html files at the live slugs
+# ============================================================
+RewriteRule ^kitchen-respray-hampshire-2/?$ kitchen-resprays.html [L]
+RewriteRule ^projects/?$ gallery.html [L]
+RewriteRule ^client-reviews/?$ reviews.html [L]
+RewriteRule ^about/?$ about.html [L]
+RewriteRule ^faqs/?$ faqs.html [L]
+RewriteRule ^contact/?$ contact.html [L]
+RewriteRule ^online-quote-for-kitchen-respraying/?$ quote.html [L]
+RewriteRule ^service-areas/?$ service-areas.html [L]
+# Town landing pages: /kitchen-respray-winchester/ → kitchen-respray-winchester.html
+RewriteRule ^(kitchen-respray-[a-z-]+)/?$ $1.html [L]
+
+# ============================================================
+# Performance — compression & browser caching
+# ============================================================
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/javascript application/json image/svg+xml
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpeg "access plus 6 months"
+  ExpiresByType image/png "access plus 6 months"
+  ExpiresByType image/webp "access plus 6 months"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType text/html "access plus 1 hour"
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(jpg|jpeg|png|webp|css|js)$">
+    Header set Cache-Control "public"
+  </FilesMatch>
+</IfModule>
