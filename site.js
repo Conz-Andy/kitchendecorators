@@ -22,3 +22,18 @@
     }
   });
 })();
+
+// Forms: live on the real domain, preview-only on GitHub Pages
+(function () {
+  var isPreview = /github\.io$/.test(location.hostname) || location.protocol === 'file:';
+  document.querySelectorAll('form[data-live-form]').forEach(function (form) {
+    var note = form.querySelector('[data-preview-note]');
+    if (isPreview) {
+      if (note) note.hidden = false;
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (note) { note.style.fontWeight = '600'; note.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+      });
+    }
+  });
+})();
