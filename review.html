@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Change Review — Kitchen Decorators</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; height: 100vh; display: flex; overflow: hidden; background: #1e1e1e; }
+  #frame { flex: 1; border: 0; height: 100vh; background: #fff; }
+  #panel {
+    width: 330px; flex-shrink: 0; height: 100vh; overflow-y: auto;
+    background: #1e1e1e; color: #e8e2d5; padding: 20px 18px; font-size: 13px;
+  }
+  #panel h1 { font-size: 15px; letter-spacing: 0.06em; margin-bottom: 4px; color: #fff; }
+  #panel .sub { color: #9a927f; font-size: 11.5px; margin-bottom: 14px; }
+  .pages { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+  .pages button {
+    background: #333; color: #ddd; border: 0; padding: 6px 10px; font-size: 11px;
+    cursor: pointer; border-radius: 3px;
+  }
+  .pages button.active { background: #8c6e3f; color: #fff; }
+  .item {
+    background: #2a2822; border-left: 3px solid #d9a94a; border-radius: 3px;
+    padding: 10px 12px; margin-bottom: 10px; cursor: pointer;
+  }
+  .item:hover { background: #33302a; }
+  .item .num {
+    display: inline-flex; width: 20px; height: 20px; border-radius: 50%;
+    background: #d9a94a; color: #1e1e1e; font-weight: 700; font-size: 11px;
+    align-items: center; justify-content: center; margin-right: 8px;
+  }
+  .item .title { font-weight: 600; color: #fff; font-size: 12.5px; }
+  .item .scott { color: #b8ae99; font-style: italic; font-size: 11.5px; margin-top: 5px; line-height: 1.5; }
+  .item .done { color: #8fbf8f; font-size: 11.5px; margin-top: 4px; line-height: 1.5; }
+  .item.missing { opacity: 0.35; cursor: default; }
+  .note { color: #9a927f; font-size: 11px; margin-top: 14px; line-height: 1.6; border-top: 1px solid #3a372f; padding-top: 12px; }
+</style>
+</head>
+<body>
+
+<iframe id="frame" src="index.html"></iframe>
+
+<div id="panel">
+  <h1>Scott's Changes — Cross-Check</h1>
+  <div class="sub">Click an item to jump to it. Gold outlines mark the change on the page. This overlay is for Andrew only — the normal site link shows none of this.</div>
+  <div class="pages" id="pagebtns"></div>
+  <div id="items"></div>
+  <div class="note">When you're happy, tell Claude "remove the review overlay" — it's one file (review.html), the site pages are untouched.</div>
+</div>
+
+<script>
+const PAGES = ['index.html','gallery.html','reviews.html','kitchen-resprays.html','about.html','faqs.html','contact.html','quote.html'];
+
+const CHANGES = [
+  { num: 1, page: 'index.html', sel: '.brand .wordmark',
+    title: 'Logo removed', scott: '"Logo still has black lines."',
+    done: 'Cube logo image dropped site-wide — clean text wordmark instead.' },
+  { num: 2, page: 'index.html', sel: '.steps-grid .step:nth-child(3)',
+    title: 'Step 03 wording', scott: '"we dont clean the kitchen cabinets. we tidy up the kitchen."',
+    done: 'Now: "Installation & Tidy Up — we tidy up the kitchen, leaving it ready to enjoy."' },
+  { num: 3, page: 'index.html', sel: '.steps-grid .step:nth-child(4)',
+    title: 'Step 04 turnaround', scott: '"turnaround is 5 days with only 2 afternoons of disruption."',
+    done: 'Now: "In just 5 days — with only 2 afternoons of disruption." (also on Kitchen Resprays page + meta)' },
+  { num: 4, page: 'index.html', sel: '.beforeafter .ba-grid',
+    title: 'Sliders removed', scott: '"Im not a big fan of the slides, sorry!"',
+    done: 'Static before / after photos side by side — no dragging.' },
+  { num: 5, page: 'index.html', sel: '.testimonials .t-grid',
+    title: 'Review cards restyled', scott: '"can we not put the actual reviews on a white box (i like the black behind the review box)... the reviews you did on the other site looked better (with pictures)."',
+    done: 'White Google-style cards with reviewer pictures, on the dark band.' },
+  { num: 6, page: 'index.html', sel: '.gallery-grid',
+    title: 'Old photos removed (homepage)', scott: '"remove ALL the old photos and replace with the ones i sent."',
+    done: 'Every image on the site is now from the new Southampton set.' },
+  { num: 7, page: 'gallery.html', sel: '.pairs-grid',
+    title: 'Gallery replaced', scott: '"apart from replacing the photos in the gallery, dont worry about changing anything else."',
+    done: '40 old colour photos removed — now 11 before/after projects from the new set.' },
+  { num: 8, page: 'reviews.html', sel: '.reviews-page-grid',
+    title: 'Reviews page rebuilt', scott: '"the reviews you did on the other site looked better (with pictures)."',
+    done: '6 full Google reviews with pictures, names, stars and dates. Count updated to 66.' },
+];
+
+const frame = document.getElementById('frame');
+const itemsEl = document.getElementById('items');
+const btnsEl = document.getElementById('pagebtns');
+
+PAGES.forEach(p => {
+  const b = document.createElement('button');
+  b.textContent = p.replace('.html','');
+  b.onclick = () => { frame.src = p; };
+  b.dataset.page = p;
+  btnsEl.appendChild(b);
+});
+
+function currentPage() {
+  try { return frame.contentWindow.location.pathname.split('/').pop() || 'index.html'; }
+  catch (e) { return 'index.html'; }
+}
+
+function inject() {
+  let doc;
+  try { doc = frame.contentDocument; } catch (e) { return; }
+  if (!doc || !doc.body) return;
+  const page = currentPage();
+
+  // page buttons state
+  btnsEl.querySelectorAll('button').forEach(b => b.classList.toggle('active', b.dataset.page === page));
+
+  // highlight relevant elements
+  CHANGES.filter(c => c.page === page).forEach(c => {
+    const el = doc.querySelector(c.sel);
+    if (!el || el.dataset.rv) return;
+    el.dataset.rv = '1';
+    el.style.outline = '3px dashed #d9a94a';
+    el.style.outlineOffset = '6px';
+    el.style.position = el.style.position || 'relative';
+    const badge = doc.createElement('div');
+    badge.textContent = c.num;
+    badge.style.cssText = 'position:absolute;top:-14px;left:-14px;width:28px;height:28px;border-radius:50%;background:#d9a94a;color:#1e1e1e;font:700 14px/28px sans-serif;text-align:center;z-index:99;box-shadow:0 2px 8px rgba(0,0,0,.4);';
+    el.appendChild(badge);
+  });
+
+  // sidebar list
+  itemsEl.innerHTML = '';
+  CHANGES.forEach(c => {
+    const d = document.createElement('div');
+    d.className = 'item' + (c.page === page ? '' : ' missing');
+    d.innerHTML = '<span class="num">' + c.num + '</span><span class="title">' + c.title + '</span>'
+      + '<div class="scott">Scott: ' + c.scott + '</div>'
+      + '<div class="done">&#10003; ' + c.done + '</div>'
+      + (c.page === page ? '' : '<div class="scott" style="font-style:normal;">(on ' + c.page.replace('.html','') + ' — click to open)</div>');
+    d.onclick = () => {
+      if (c.page !== page) { frame.src = c.page + '#'; return; }
+      const el = frame.contentDocument && frame.contentDocument.querySelector(c.sel);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    };
+    itemsEl.appendChild(d);
+  });
+}
+
+frame.addEventListener('load', () => setTimeout(inject, 300));
+</script>
+
+</body>
+</html>
