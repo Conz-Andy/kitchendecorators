@@ -14,7 +14,7 @@
     var img = e.target.closest('.ba-shot');
     if (img) {
       var i = img.querySelector('img');
-      if (i) { openLightbox(i.src); return; }
+      if (i) { openLightbox(i.dataset.full || i.src); return; }
     }
     var tile = e.target.closest('.gallery-grid .tile, .work-grid .tile');
     if (tile) {
