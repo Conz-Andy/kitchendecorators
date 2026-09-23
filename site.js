@@ -9,6 +9,8 @@
     document.body.appendChild(lb);
   }
   document.addEventListener('click', function (e) {
+    var reelImg = e.target.closest('.reel img');
+    if (reelImg) { openLightbox(reelImg.dataset.full || reelImg.src); return; }
     var img = e.target.closest('.ba-shot');
     if (img) {
       var i = img.querySelector('img');
