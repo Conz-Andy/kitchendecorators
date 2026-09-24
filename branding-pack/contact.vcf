@@ -1,7 +1,9 @@
 BEGIN:VCARD
 VERSION:3.0
-FN:The Kitchen Decorating Co
+N:Rice;Scott;;;
+FN:Scott Rice
 ORG:The Kitchen Decorating Co
+TITLE:Owner
 TEL;TYPE=WORK:+441962458055
 URL:https://kitchendecorators.co.uk
 END:VCARD
