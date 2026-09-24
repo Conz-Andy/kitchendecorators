@@ -1,0 +1,13 @@
+:root{--shirt:#ffffff;--ink:#2F3191;--roundel:transparent;--mid:#2F3191}
+.bp-bar{position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;padding:10px 16px;background:#1c1d2e;color:#fff;font:600 14px 'Figtree','Helvetica Neue',sans-serif}
+.bp-bar a,.bp-bar button{color:#fff;font:inherit}
+.bp-bar button{min-height:40px;padding:0 18px;border:0;border-radius:999px;background:#14AEA9;color:#10111c;font-weight:700;cursor:pointer}
+.bp-sw a{margin-left:10px}
+.bp-stage{padding:24px;overflow:auto;display:flex;justify-content:center}
+.bp-stage>div{flex-shrink:0;box-shadow:0 4px 24px rgba(20,20,40,.15)}
+@media screen{body{background:#e9eaf0!important}}
+html.embed body{background:#fff!important}
+html.embed .bp-bar{display:none}
+html.embed .bp-stage{padding:0}
+html.embed .bp-stage>div{box-shadow:none}
+@media print{.bp-bar{display:none}.bp-stage{padding:0;overflow:visible}.bp-stage>div{box-shadow:none}html,body{background:#fff}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
