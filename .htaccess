@@ -61,6 +61,9 @@ RewriteRule ^faqs/?$ faqs.html [L]
 RewriteRule ^contact/?$ contact.html [L]
 RewriteRule ^online-quote-for-kitchen-respraying/?$ quote.html [L]
 RewriteRule ^service-areas/?$ service-areas.html [L]
+# Blog: /blog/ → blog.html, /blog/post-slug/ → blog-post-slug.html
+RewriteRule ^blog/?$ blog.html [L]
+RewriteRule ^blog/([a-z0-9-]+)/?$ blog-$1.html [L]
 # Town landing pages: /kitchen-respray-winchester/ → kitchen-respray-winchester.html
 RewriteRule ^(kitchen-respray-[a-z-]+)/?$ $1.html [L]
 
