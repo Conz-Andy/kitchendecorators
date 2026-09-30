@@ -19,6 +19,8 @@ function clean($v) { return trim(str_replace(array("\r", "\n"), ' ', $v ?? ''));
 $name    = clean($_POST['name'] ?? '');
 $email   = clean($_POST['email'] ?? '');
 $phone   = clean($_POST['phone'] ?? '');
+$address = clean($_POST['address'] ?? '');
+$postcode = strtoupper(clean($_POST['postcode'] ?? ''));
 $message = trim($_POST['message'] ?? '');
 
 if ($name === '' || $message === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -32,7 +34,9 @@ $subject = 'Website enquiry from ' . $name;
 $body    = "New message from the kitchendecorators.co.uk contact form\n\n"
          . "Name:  $name\n"
          . "Email: $email\n"
-         . "Phone: $phone\n\n"
+         . "Phone: $phone\n"
+         . "Address:  $address\n"
+         . "Postcode: $postcode\n\n"
          . "Message:\n$message\n";
 
 $headers = "From: Kitchen Decorators Website <$FROM>\r\n"
