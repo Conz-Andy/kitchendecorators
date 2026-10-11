@@ -50,6 +50,20 @@ RedirectMatch 301 ^/testimonial(/.*)?$ https://www.kitchendecorators.co.uk/clien
 RedirectMatch 301 ^/service(/.*)?$ https://www.kitchendecorators.co.uk/
 RedirectMatch 301 ^/process(/.*)?$ https://www.kitchendecorators.co.uk/
 
+# Old WordPress archives (found in Yoast sitemaps, Oct 2026 pre-launch check)
+# Colour categories → gallery; tags/categories → main service page; review categories → reviews
+RedirectMatch 301 ^/categories(/.*)?$ https://www.kitchendecorators.co.uk/projects/
+RedirectMatch 301 ^/category_testimonial(/.*)?$ https://www.kitchendecorators.co.uk/client-reviews/
+RedirectMatch 301 ^/(tag|category)(/.*)?$ https://www.kitchendecorators.co.uk/kitchen-respray-hampshire-2/
+# Old Yoast sitemaps → new sitemap; RSS feed → blog
+RedirectMatch 301 ^/(sitemap_index|[a-z_]+-sitemap[0-9]*)\.xml$ https://www.kitchendecorators.co.uk/sitemap.xml
+RedirectMatch 301 ^/(comments/)?feed/?$ https://www.kitchendecorators.co.uk/blog/
+# (wp-admin / wp-login.php / xmlrpc.php deliberately left as 404)
+
+# Old WordPress image URLs → same image in /images/ where it still exists
+RewriteCond %{DOCUMENT_ROOT}/images/$1 -f
+RewriteRule ^wp-content/uploads/[0-9]{4}/[0-9]{2}/([^/]+)$ https://www.kitchendecorators.co.uk/images/$1 [R=301,L]
+
 # ============================================================
 # Clean URLs — serve the static .html files at the live slugs
 # ============================================================
