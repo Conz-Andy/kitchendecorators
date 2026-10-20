@@ -65,6 +65,15 @@ RewriteCond %{DOCUMENT_ROOT}/images/$1 -f
 RewriteRule ^wp-content/uploads/[0-9]{4}/[0-9]{2}/([^/]+)$ https://www.kitchendecorators.co.uk/images/$1 [R=301,L]
 
 # ============================================================
+# Junk addresses Google picked up from the old relative links
+# (e.g. /blog/some-post/gallery.html, /about/images/x.jpg) → real file
+# ============================================================
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^.+/([a-z0-9-]+\.html)$ https://www.kitchendecorators.co.uk/$1 [R=301,L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^.+/((images|areas)/.+)$ https://www.kitchendecorators.co.uk/$1 [R=301,L]
+
+# ============================================================
 # One address per page — 301 the .html file names to the clean URLs
 # (THE_REQUEST only matches what the browser asked for, so the
 #  internal rewrites below can't loop back into these redirects)
