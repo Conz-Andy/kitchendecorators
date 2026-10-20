@@ -9,10 +9,10 @@
 $TO   = 'info@kitchendecorators.co.uk';
 $FROM = 'noreply@kitchendecorators.co.uk'; // must be a domain address for SPF
 
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') { header('Location: contact.html'); exit; }
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') { header('Location: /contact/'); exit; }
 
 // Honeypot — bots fill the hidden "website" field
-if (!empty($_POST['website'])) { header('Location: thank-you.html'); exit; }
+if (!empty($_POST['website'])) { header('Location: /thank-you.html'); exit; }
 
 function clean($v) { return trim(str_replace(array("\r", "\n"), ' ', $v ?? '')); }
 
@@ -44,5 +44,5 @@ $headers = "From: Kitchen Decorators Website <$FROM>\r\n"
          . "X-Mailer: PHP/" . phpversion();
 
 mail($TO, $subject, $body, $headers);
-header('Location: thank-you.html');
+header('Location: /thank-you.html');
 exit;
