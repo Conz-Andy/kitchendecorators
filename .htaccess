@@ -23,7 +23,7 @@ RewriteRule ^(.*)$ https://www.kitchendecorators.co.uk/$1 [R=301,L]
 # Old pages
 RedirectMatch 301 ^/our-services/?$ https://www.kitchendecorators.co.uk/kitchen-respray-hampshire-2/
 RedirectMatch 301 ^/kitchen-respray-hampshire/?$ https://www.kitchendecorators.co.uk/kitchen-respray-hampshire-2/
-RedirectMatch 301 ^/colours/?$ https://www.kitchendecorators.co.uk/
+RedirectMatch 301 ^/colours/?$ https://www.kitchendecorators.co.uk/projects/
 RedirectMatch 301 ^/colour-consultation/?$ https://www.kitchendecorators.co.uk/contact/
 RedirectMatch 301 ^/colour-consultant-request/?$ https://www.kitchendecorators.co.uk/contact/
 
@@ -63,6 +63,40 @@ RedirectMatch 301 ^/(comments/)?feed/?$ https://www.kitchendecorators.co.uk/blog
 # Old WordPress image URLs → same image in /images/ where it still exists
 RewriteCond %{DOCUMENT_ROOT}/images/$1 -f
 RewriteRule ^wp-content/uploads/[0-9]{4}/[0-9]{2}/([^/]+)$ https://www.kitchendecorators.co.uk/images/$1 [R=301,L]
+
+# ============================================================
+# Junk addresses Google picked up from the old relative links
+# (e.g. /blog/some-post/gallery.html, /about/images/x.jpg) → real file
+# ============================================================
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^.+/([a-z0-9-]+\.html)$ https://www.kitchendecorators.co.uk/$1 [R=301,L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^.+/((images|areas)/.+)$ https://www.kitchendecorators.co.uk/$1 [R=301,L]
+
+# ============================================================
+# One address per page — 301 the .html file names to the clean URLs
+# (THE_REQUEST only matches what the browser asked for, so the
+#  internal rewrites below can't loop back into these redirects)
+# ============================================================
+RewriteCond %{THE_REQUEST} \s/+index\.html[\s?]
+RewriteRule ^index\.html$ https://www.kitchendecorators.co.uk/ [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+kitchen-resprays\.html[\s?]
+RewriteRule ^kitchen-resprays\.html$ https://www.kitchendecorators.co.uk/kitchen-respray-hampshire-2/ [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+gallery\.html[\s?]
+RewriteRule ^gallery\.html$ https://www.kitchendecorators.co.uk/projects/ [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+reviews\.html[\s?]
+RewriteRule ^reviews\.html$ https://www.kitchendecorators.co.uk/client-reviews/ [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+quote\.html[\s?]
+RewriteRule ^quote\.html$ https://www.kitchendecorators.co.uk/online-quote-for-kitchen-respraying/ [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+(about|faqs|contact|service-areas|blog)\.html[\s?]
+RewriteRule ^(about|faqs|contact|service-areas|blog)\.html$ https://www.kitchendecorators.co.uk/$1/ [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+blog-([a-z0-9-]+)\.html[\s?]
+RewriteRule ^blog-([a-z0-9-]+)\.html$ https://www.kitchendecorators.co.uk/blog/$1/ [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+(kitchen-respray-[a-z-]+)\.html[\s?]
+RewriteRule ^(kitchen-respray-[a-z-]+)\.html$ https://www.kitchendecorators.co.uk/$1/ [R=301,L]
+
+# Missing trailing slash → slash version (matches the canonical tags)
+RewriteRule ^(about|faqs|contact|service-areas|blog|projects|client-reviews|online-quote-for-kitchen-respraying|kitchen-respray-hampshire-2|kitchen-respray-[a-z-]+|blog/[a-z0-9-]+)$ https://www.kitchendecorators.co.uk/$1/ [R=301,L]
 
 # ============================================================
 # Clean URLs — serve the static .html files at the live slugs

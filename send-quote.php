@@ -9,10 +9,10 @@ $TO   = 'info@kitchendecorators.co.uk';
 $FROM = 'noreply@kitchendecorators.co.uk'; // must be a domain address for SPF
 $MAX_FILE_BYTES = 8 * 1024 * 1024; // 8MB per photo
 
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') { header('Location: quote.html'); exit; }
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') { header('Location: /online-quote-for-kitchen-respraying/'); exit; }
 
 // Honeypot — bots fill the hidden "website" field
-if (!empty($_POST['website'])) { header('Location: thank-you.html'); exit; }
+if (!empty($_POST['website'])) { header('Location: /thank-you.html'); exit; }
 
 function clean($v) { return trim(str_replace(array("\r", "\n"), ' ', $v ?? '')); }
 
@@ -76,5 +76,5 @@ foreach ($attachments as $a) {
 $body .= "--$boundary--\r\n";
 
 mail($TO, $subject, $body, $headers);
-header('Location: thank-you.html');
+header('Location: /thank-you.html');
 exit;
