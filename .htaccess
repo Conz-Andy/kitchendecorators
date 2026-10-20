@@ -23,7 +23,7 @@ RewriteRule ^(.*)$ https://www.kitchendecorators.co.uk/$1 [R=301,L]
 # Old pages
 RedirectMatch 301 ^/our-services/?$ https://www.kitchendecorators.co.uk/kitchen-respray-hampshire-2/
 RedirectMatch 301 ^/kitchen-respray-hampshire/?$ https://www.kitchendecorators.co.uk/kitchen-respray-hampshire-2/
-RedirectMatch 301 ^/colours/?$ https://www.kitchendecorators.co.uk/
+RedirectMatch 301 ^/colours/?$ https://www.kitchendecorators.co.uk/projects/
 RedirectMatch 301 ^/colour-consultation/?$ https://www.kitchendecorators.co.uk/contact/
 RedirectMatch 301 ^/colour-consultant-request/?$ https://www.kitchendecorators.co.uk/contact/
 
