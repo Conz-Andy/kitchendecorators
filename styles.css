@@ -23,7 +23,7 @@
     background: var(--bg);
     -webkit-font-smoothing: antialiased;
   }
-  img { max-width: 100%; display: block; }
+  img { max-width: 100%; height: auto; display: block; }
   a { color: inherit; text-decoration: none; transition: color .2s ease; }
   a:hover { color: var(--accent); }
   .container { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
@@ -154,7 +154,7 @@
 
   /* INTRO */
   .intro { padding: 110px 0 90px; text-align: center; }
-  .intro h1 {
+  .intro h1, .intro h2 {
     font-family: var(--display);
     font-weight: 400;
     font-size: clamp(28px, 3.2vw, 42px);
