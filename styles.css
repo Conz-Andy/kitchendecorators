@@ -634,10 +634,60 @@
   }
   #lightbox img { max-width: 100%; max-height: 100%; box-shadow: 0 30px 90px rgba(0,0,0,0.6); }
   #lightbox .lb-close {
-    position: absolute; top: 18px; right: 26px;
+    position: absolute; top: 18px; right: 26px; z-index: 2;
     color: #fff; font-size: 34px; font-family: sans-serif;
     background: none; border: 0; cursor: pointer; opacity: 0.8;
   }
+  #lightbox .lb-close:hover { opacity: 1; }
+  html.lb-open { overflow: hidden; }
+  .ba-pair .ba-shot { cursor: zoom-in; }
+  .ba-pair .ba-shot:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  /* Lightbox figure: photo + Before/After switch */
+  #lightbox .lb-figure {
+    margin: 0; max-width: 100%; max-height: 100%;
+    display: flex; flex-direction: column; align-items: center; gap: 18px;
+    cursor: default;
+  }
+  #lightbox .lb-stage {
+    position: relative; display: flex; justify-content: center;
+    max-height: calc(92vh - 110px); cursor: zoom-out;
+  }
+  #lightbox .lb-stage img {
+    max-height: calc(92vh - 110px); max-width: 92vw; object-fit: contain;
+    transition: opacity .15s ease;
+  }
+  #lightbox .lb-stage img.lb-fade { opacity: 0.15; }
+  #lightbox .lb-figure:has(.lb-bar) .lb-stage { cursor: pointer; }
+  #lightbox .lb-tag {
+    position: absolute; left: 14px; bottom: 14px;
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: #fff; background: rgba(0,0,0,0.6); padding: 6px 12px;
+    pointer-events: none;
+  }
+  #lightbox .lb-tag.after { background: var(--accent); }
+  #lightbox .lb-bar {
+    display: flex; flex-direction: column; align-items: center; gap: 10px;
+    color: #e9e2d4; text-align: center;
+  }
+  #lightbox .lb-caption {
+    font-size: 12px; letter-spacing: 0.25em; text-transform: uppercase; color: #cfc6b4;
+  }
+  #lightbox .lb-toggle {
+    display: inline-flex; border: 1px solid rgba(255,255,255,0.35); border-radius: 999px; padding: 3px;
+    background: rgba(0,0,0,0.35);
+  }
+  #lightbox .lb-toggle button {
+    font-family: var(--body); font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: #fff; background: none; border: 0; border-radius: 999px;
+    padding: 9px 22px; cursor: pointer; min-width: 104px;
+    transition: background .2s ease, color .2s ease;
+  }
+  #lightbox .lb-toggle button:hover { background: rgba(255,255,255,0.12); }
+  #lightbox .lb-toggle button.active { background: #fff; color: var(--ink); }
+  #lightbox .lb-toggle button[data-i="1"].active { background: var(--accent); color: #fff; }
+  #lightbox .lb-toggle button:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+  #lightbox .lb-hint { font-size: 12px; color: #a89f8f; }
 
   /* HOMEPAGE REEL — strip of recent kitchens above the hero tagline */
   .hero { flex-direction: column; justify-content: flex-end; align-items: stretch; }
