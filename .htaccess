@@ -21,6 +21,8 @@ RewriteRule ^(.*)$ https://www.kitchendecorators.co.uk/$1 [R=301,L]
 # ============================================================
 
 # Old pages
+# Removed article (Oct 2026) -> quote page, the closest match for "what will it cost"
+RedirectMatch 301 ^/blog(/|-)kitchen-respray-cost-hampshire(/|\.html)?$ https://www.kitchendecorators.co.uk/online-quote-for-kitchen-respraying/
 RedirectMatch 301 ^/our-services/?$ https://www.kitchendecorators.co.uk/kitchen-respray-hampshire-2/
 RedirectMatch 301 ^/kitchen-respray-hampshire/?$ https://www.kitchendecorators.co.uk/kitchen-respray-hampshire-2/
 RedirectMatch 301 ^/colours/?$ https://www.kitchendecorators.co.uk/projects/
