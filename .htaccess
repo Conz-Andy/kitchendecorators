@@ -10,8 +10,11 @@ DirectoryIndex index.html
 RewriteEngine On
 
 # ---- Force HTTPS + www (single canonical host) ----
+# Any request that is not https://www.kitchendecorators.co.uk goes there in one hop:
+# http/https, with/without www, and any extra domain parked or aliased on this hosting
+# (e.g. http://newdomain.co.uk, https://www.newdomain.co.uk).
 RewriteCond %{HTTPS} off [OR]
-RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteCond %{HTTP_HOST} !^www\.kitchendecorators\.co\.uk$ [NC]
 RewriteCond %{HTTP_HOST} !^$
 RewriteRule ^(.*)$ https://www.kitchendecorators.co.uk/$1 [R=301,L]
 
